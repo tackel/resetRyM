@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClients";
 
 const Reset = () => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [changeToken, setChangeToken] = useState(null);
 
   useEffect(() => {
@@ -25,7 +25,9 @@ const Reset = () => {
     const { error, data } = await supabase.auth.api.updateUser(changeToken, {
       password: password,
     });
-    error ? alert(error) : alert("passwor modificado, ya puede loguearse");
+    if (error) alert(error);
+    if (data) alert("passwor modificado, ya puede loguearse");
+    //error ? alert(error) : alert("passwor modificado, ya puede loguearse");
   };
 
   return (
@@ -100,37 +102,17 @@ const Reset = () => {
         }}
         onClick={handleNewPassword}
       >
-        <text
+        <label
           style={{
             color: "orangered",
             fontSize: 25,
           }}
         >
           Cambiar Password
-        </text>
+        </label>
       </button>
     </div>
   );
 };
 
 export default Reset;
-
-/*
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#474645",
-    width: "100%",
-    height: "10%",
-    flexDirection: "row",
-    padding: 14,
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  text: {
-    color: "#2ccce4",
-    fontSize: 25,
-    fontFamily: "Arbutus-Regular",
-    textTransform: "uppercase",
-  },
-});
-*/
