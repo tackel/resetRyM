@@ -24,16 +24,12 @@ const Registro = () => {
       </h1>
       <h3
         style={{
-          backgroundColor: "#474645",
-          width: "60%",
-          //height: "100%",
-          flexDirection: "row",
-          padding: 14,
-          alignItems: "center",
+          color: "orangered",
           justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        Puedo volver a la app y loguearse
+        Puede volver a la app y loguearse
       </h3>
     </div>
   );
