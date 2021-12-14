@@ -24,7 +24,7 @@ const Registro = () => {
       </h1>
       <h3
         style={{
-          color: "orangered",
+          color: "white",
           justifyContent: "space-between",
           alignItems: "center",
         }}
